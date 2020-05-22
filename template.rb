@@ -5,4 +5,13 @@ gem_group :development, :test do
   gem 'rspec'
 end
 
-rails_command('g annotate:install')
+after_bundle do
+  rails_command('g annotate:install')
+
+  rails_command('db:create')
+  rails_command('db:migrate')
+
+  git(:init)
+  git(add: '.')
+  git(commit: %( -m 'Initial commit using personal-projects-template' ))
+end
