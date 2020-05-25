@@ -2,10 +2,14 @@
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
+gem 'friendly_id', '~> 5.3'
+gem 'mini_magick'
 gem 'pg'
 gem 'sassc-rails'
 gem 'simple_form'
+gem 'sitemap_generator'
 gem 'uglifier'
+gem 'whenever', require: false
 
 gem_group :development, :test do
   gem 'annotate'
@@ -21,6 +25,7 @@ after_bundle do
   generate('simple_form:install')
   # rails generate simple_form:install --bootstrap
   # rails generate simple_form:install --foundation
+  rails_command('sitemap:install')
   run('bundle exec spring binstub --all')
 
   rails_command('db:create')
