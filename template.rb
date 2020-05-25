@@ -1,12 +1,27 @@
 # frozen_string_literal: true
 
+gem 'autoprefixer-rails'
+gem 'font-awesome-sass', '~> 5.12.0'
+gem 'pg'
+gem 'sassc-rails'
+gem 'simple_form'
+gem 'uglifier'
+
 gem_group :development, :test do
   gem 'annotate'
+  gem 'dotenv-rails'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rspec'
+  gem 'spring'
 end
 
 after_bundle do
-  rails_command('g annotate:install')
+  generate('annotate:install')
+  generate('simple_form:install')
+  # rails generate simple_form:install --bootstrap
+  # rails generate simple_form:install --foundation
+  run('bundle exec spring binstub --all')
 
   rails_command('db:create')
   rails_command('db:migrate')
