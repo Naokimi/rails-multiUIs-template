@@ -62,6 +62,7 @@ after_bundle do
   # rails generate simple_form:install --foundation
   rails_command 'sitemap:install'
   run 'bundle exec spring binstub --all'
+  run 'bundle exec wheneverize .'
 
   rails_command 'db:create db:migrate'
 
