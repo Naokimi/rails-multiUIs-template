@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# next step: implement one of the frameworks (bulma?)
+# next steo: implement second framework + framework choice option
+
 # GEMS
 ################################################################################
 
@@ -52,10 +55,19 @@ file 'app/views/layouts/application.html.erb', <<-HTML
   </html>
 HTML
 
+def overwrite_homepage
+  run 'rm app/views/pages/home.html.erb'
+  file 'app/views/pages/home.html.erb', <<-HTML
+    <h1><i class="fas fa-heart"></i>Welcome to our default homepage<i class="fas fa-heart"></i></h1>
+  HTML
+end
+
 # AFTER BUNDLE
 ################################################################################
 
 after_bundle do
+  generate(:controller, 'pages', 'home', '--skip-routes', '--no-test-framework')
+  overwrite_homepage
   generate 'annotate:install'
   generate 'simple_form:install'
   # rails generate simple_form:install --bootstrap
@@ -65,6 +77,22 @@ after_bundle do
   run 'bundle exec wheneverize .'
 
   rails_command 'db:create db:migrate'
+
+  # Routes
+  ########################################
+  route "root to: 'pages#home'"
+
+  # Git ignore
+  ########################################
+  append_file '.gitignore', <<-TXT
+
+  # Ignore .env file containing credentials.
+  .env*
+
+  # Ignore Mac and Linux file system files
+  *.swp
+  .DS_Store
+  TXT
 
   git :init
   git add: '.'
