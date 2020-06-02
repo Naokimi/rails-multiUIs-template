@@ -7,6 +7,7 @@
 ################################################################################
 
 gem 'autoprefixer-rails'
+gem "bulma-rails", "~> 0.8.2"
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'friendly_id', '~> 5.3'
 gem 'mini_magick'
@@ -33,6 +34,7 @@ remove_file 'app/assets/stylesheets/application.css'
 file 'app/assets/stylesheets/application.css.scss', <<-SCSS
   @import "font-awesome-sprockets";
   @import "font-awesome";
+  @import "bulma";
 SCSS
 
 run 'rm app/views/layouts/application.html.erb'
@@ -42,11 +44,10 @@ file 'app/views/layouts/application.html.erb', <<-HTML
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>TODO</title>
+      <title>Personal Projects Template</title>
       <%= csrf_meta_tags %>
       <%= action_cable_meta_tag %>
       <%= stylesheet_link_tag 'application', media: 'all' %>
-      <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     </head>
     <body>
       <%= yield %>
@@ -58,7 +59,19 @@ HTML
 def overwrite_homepage
   run 'rm app/views/pages/home.html.erb'
   file 'app/views/pages/home.html.erb', <<-HTML
-    <h1><i class="fas fa-heart"></i>Welcome to our default homepage<i class="fas fa-heart"></i></h1>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">
+          <i class="fas fa-heart"></i> Bulma Framework <i class="fas fa-heart"></i>
+        </h1>
+        <p class="subtitle">
+          Discover how to <strong>customize</strong> it!
+        </p>
+        <p>
+          <a class="button is-light" href="https://bulma.io/documentation/overview/start/">Documentation</a>
+        </p>
+      </div>
+    </section>
   HTML
 end
 
