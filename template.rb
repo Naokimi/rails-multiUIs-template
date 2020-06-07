@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'support/router.rb'
-require_relative 'support/views.rb'
-
-# next step: implement second framework + framework choice option
-# next step: move methods into support folder/file
-
-require_relative 'support/router.rb'
 
 # next step: implement second framework + framework choice option
 # next step: move methods into support folder/file
