@@ -1,27 +1,17 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-
-def bulma_framework
-  gems
-  bulmas_gems
-  overwrite_layout
-
-  after_bundle do
-    homepage_controller
-    homepage_view
-    simple_form_install
-    generate_installs_and_migrate
-    git_ignore
-    commit_and_push
-  end
-end
-
-def bulmas_gems
+def bulma_gems
   gem 'bulma-rails', '~> 0.8.2'
 end
 
-def application_css
+def bulma_layout
+  bulma_application_css
+  application_html
+  bulma_navbar
+  bulma_footer
+end
+
+def bulma_application_css
   remove_file 'app/assets/stylesheets/application.css'
   file 'app/assets/stylesheets/application.css.scss', <<-SCSS
     @import "font-awesome-sprockets";
@@ -30,7 +20,7 @@ def application_css
   SCSS
 end
 
-def navbar
+def bulma_navbar
   file 'app/views/pages/_navbar.html.erb', <<-HTML
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
@@ -89,7 +79,7 @@ def navbar
   HTML
 end
 
-def footer
+def bulma_footer
   file 'app/views/pages/_footer.html.erb', <<-HTML
     <footer class="footer">
       <div class="content has-text-centered">
@@ -105,7 +95,7 @@ def footer
   HTML
 end
 
-def homepage_view
+def bulma_homepage
   run 'rm app/views/pages/home.html.erb'
   file 'app/views/pages/home.html.erb', <<-HTML
     <section class="hero is-primary">
@@ -124,4 +114,19 @@ def homepage_view
       </div>
     </section>
   HTML
+end
+
+def bulma_framework
+  gems
+  bulma_gems
+  bulma_layout
+
+  after_bundle do
+    homepage_controller
+    bulma_homepage
+    simple_form_install
+    generate_installs_and_migrate
+    git_ignore
+    commit_and_push
+  end
 end

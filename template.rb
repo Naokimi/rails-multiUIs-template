@@ -21,6 +21,8 @@ def pick_option
     bulma_framework
   when '3'
     foundation_framework
+  when '4'
+    tailwind_framework
   else
     say 'Error - please pick a number from the list'
     pick_option
@@ -34,6 +36,7 @@ say 'please pick a template from the list:'
 say '1 - Bootstrap:  The most popular HTML, CSS, and JS library in the world'
 say '2 - Bulma:      A pure CSS framework based on Flexbox and built with Sass'
 say '3 - Foundation: The most advanced responsive front-end framework in the world'
+say '4 - Tailwind:   A utility-first CSS framework for rapidly building custom designs'
 say
 
 pick_option

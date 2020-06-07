@@ -22,13 +22,6 @@ def gems
   end
 end
 
-def overwrite_layout
-  application_css
-  application_html
-  navbar
-  footer
-end
-
 def application_html
   run 'rm app/views/layouts/application.html.erb'
   file 'app/views/layouts/application.html.erb', <<-HTML
@@ -53,7 +46,7 @@ def application_html
 end
 
 def homepage_controller
-  generate(:controller, 'pages', 'home', '--skip-routes', '--no-test-framework')
+  generate(:controller, 'pages', 'home', '--skip-routes')
   route "root to: 'pages#home'"
 end
 
@@ -87,6 +80,6 @@ end
 
 def simple_form_install
   generate 'simple_form:install'
-  # rails generate simple_form:install --bootstrap
-  # rails generate simple_form:install --foundation
+  # generate('simple_form:install', '--bootstrap')
+  # generate('simple_form:install', '--foundation')
 end
