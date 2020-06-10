@@ -21,7 +21,7 @@ end
 
 def foundation_application_css
   remove_file 'app/assets/stylesheets/application.css'
-  file 'app/assets/stylesheets/application.css.scss', <<-SCSS
+  file 'app/assets/stylesheets/application.scss', <<-SCSS
     @import "font-awesome-sprockets";
     @import "font-awesome";
   SCSS

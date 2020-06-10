@@ -81,5 +81,4 @@ end
 def simple_form_install
   generate 'simple_form:install'
   # generate('simple_form:install', '--bootstrap')
-  # generate('simple_form:install', '--foundation')
 end
