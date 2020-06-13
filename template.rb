@@ -2,21 +2,14 @@
 
 require_relative 'support/router.rb'
 
-# next step: implement second framework + framework choice option
-# next step: move methods into support folder/file
-
 def pick_option
   option = ask 'pick a number'
 
   case option
-  when '1'
-    bootstrap_framework
-  when '2'
-    bulma_framework
-  when '3'
-    foundation_framework
-  when '4'
-    tailwind_framework
+  when '1' then bootstrap_framework
+  when '2' then bulma_framework
+  when '3' then foundation_framework
+  when '4' then tailwind_framework
   else
     say 'Error - please pick a number from the list'
     pick_option
