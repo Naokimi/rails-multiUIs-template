@@ -14,11 +14,11 @@ end
 def tailwind_application_css
   remove_file 'app/assets/stylesheets/application.css'
   file 'app/assets/stylesheets/application.scss', <<-SCSS
-    @import "font-awesome-sprockets";
-    @import "font-awesome";
-    @import "tailwindcss/base";
-    @import "tailwindcss/components";
-    @import "tailwindcss/utilities";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
   SCSS
 end
 

@@ -25,24 +25,32 @@ end
 def application_html
   run 'rm app/views/layouts/application.html.erb'
   file 'app/views/layouts/application.html.erb', <<-HTML
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Personal Projects Template</title>
-        <%= csrf_meta_tags %>
-        <%= action_cable_meta_tag %>
-        <%= stylesheet_link_tag 'application', media: 'all' %>
-      </head>
-      <body>
-        <%= render 'pages/navbar' %>
-        <%= yield %>
-        <%= render 'pages/footer' %>
-        <%= javascript_pack_tag 'application' %>
-      </body>
-    </html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal Projects Template</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+  <body>
+    <%= render 'pages/navbar' %>
+    <%= yield %>
+    <%= render 'pages/footer' %>
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>
   HTML
+end
+
+def application_css
+  remove_file 'app/assets/stylesheets/application.css'
+  file 'app/assets/stylesheets/application.scss', <<-SCSS
+@import "font-awesome-sprockets";
+@import "font-awesome";
+  SCSS
 end
 
 def homepage_controller
@@ -61,12 +69,12 @@ end
 def git_ignore
   append_file '.gitignore', <<-TXT
 
-  # Ignore .env file containing credentials.
-  .env*
+# Ignore .env file containing credentials.
+.env*
 
-  # Ignore Mac and Linux file system files
-  *.swp
-  .DS_Store
+# Ignore Mac and Linux file system files
+*.swp
+.DS_Store
   TXT
 end
 
