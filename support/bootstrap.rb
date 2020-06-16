@@ -32,7 +32,7 @@ def remove_lewagon_design
   file 'app/assets/stylesheets/components/_alert.scss'
   file 'app/assets/stylesheets/components/_avatar.scss'
   file 'app/assets/stylesheets/components/_navbar.scss'
-  file 'app/assets/stylesheets/config/_bootstrap_variables.scss', <<-CSS
+  file 'app/assets/stylesheets/config/_bootstrap_variables.scss', <<-CODE
 // This is where you override default Bootstrap variables
 // 1. All Bootstrap variables are here => https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
 // 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
@@ -54,7 +54,7 @@ $warning:    $orange;
 
 // Override other variables below!
 
-  CSS
+  CODE
 end
 
 def bootstrap_application_js
