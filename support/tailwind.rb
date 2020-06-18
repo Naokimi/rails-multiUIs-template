@@ -24,7 +24,6 @@ let environment = {
 module.exports = environment;
   JS
   run 'npx tailwindcss init --full'
-  run 'mkdir app/javascript/stylesheets/'
   run 'mv tailwind.config.js app/javascript/stylesheets/tailwind.config.js'
 end
 
@@ -64,6 +63,8 @@ def tailwind_application_css
   file 'app/assets/stylesheets/application.scss', <<-SCSS
 @import "font-awesome-sprockets";
 @import "font-awesome";
+  SCSS
+  file 'app/javascript/stylesheets/application.scss', <<-SCSS
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
