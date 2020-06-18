@@ -1,14 +1,62 @@
 # frozen_string_literal: true
 
 def install_tailwind
-  run 'yarn add tailwindcss --dev'
+  run 'yarn add tailwindcss'
+end
+
+def tailwind_config_files
+  remove_file 'postcss.config.js'
+  file 'postcss.config.js', <<-JS
+let environment = {
+  plugins: [
+    require('tailwindcss')('./app/javascript/stylesheets/tailwind.config.js'),
+    require('postcss-import'),
+    require('postcss-flexbugs-fixes'),
+    require('postcss-preset-env')({
+      autoprefixer: {
+        flexbox: 'no-2009'
+      },
+      stage: 3
+    })
+  ]
+};
+
+module.exports = environment;
+  JS
+  run 'npx tailwindcss init --full'
+  run 'mkdir app/javascript/stylesheets/'
+  run 'mv tailwind.config.js app/javascript/stylesheets/tailwind.config.js'
 end
 
 def tailwind_layout
   tailwind_application_css
-  application_html
+  tailwind_application_html
   tailwind_navbar
   tailwind_footer
+end
+
+def tailwind_application_html
+  run 'rm app/views/layouts/application.html.erb'
+  file 'app/views/layouts/application.html.erb', <<-HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal Projects Template</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+  <body class="bg-black text-white font-sans">
+
+    <%= render 'pages/navbar' %>
+    <%= yield %>
+    <%= render 'pages/footer' %>
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>
+  HTML
 end
 
 def tailwind_application_css
@@ -20,6 +68,9 @@ def tailwind_application_css
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
   SCSS
+  inject_into_file 'app/javascript/packs/application.js', <<-CODE
+import "stylesheets/application"
+  CODE
 end
 
 def tailwind_navbar
@@ -47,6 +98,7 @@ def tailwind_framework
   tailwind_layout
 
   after_bundle do
+    tailwind_config_files
     homepage_controller
     tailwind_homepage
     simple_form_install
