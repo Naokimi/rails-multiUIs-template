@@ -132,14 +132,40 @@ end
 
 def tailwind_footer
   file 'app/views/pages/_footer.html.erb', <<-HTML
-
+<footer class="bg-gray-100 text-gray-600">
+  <div class="container mx-auto px-6 pt-10 pb-6">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Tailwind</strong> by <a href="https://github.com/tailwindcss/tailwindcss">the Tailwind contributors</a>. The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+    </p>
+    <p>
+      Rails template made by <a href="https://github.com/Naokimi"><i class="fab fa-github"></i> Naokimi</a>
+    </p>
+  </div>
+  </div>
+</footer>
   HTML
 end
 
 def tailwind_homepage
   run 'rm app/views/pages/home.html.erb'
   file 'app/views/pages/home.html.erb', <<-HTML
+<div class="py-20 text-gray-700 bg-white" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%)"
+>
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-2 text-white">
+      <i class="fas fa-heart"></i> Tailwind Framework <i class="fas fa-heart"></i>
+    </h2>
+    <h3 class="text-2xl mb-8 text-gray-200">
+      A highly customizable, low-level CSS framework. Discover how to <strong>customize</strong> it!
+    </h3>
 
+    <a class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider" href="https://tailwindcss.com/components">
+      Documentation
+    </a>
+  </div>
+</div>
   HTML
 end
 
