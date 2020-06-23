@@ -47,8 +47,7 @@ def tailwind_application_html
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
-  <body class="bg-black text-white font-sans">
-
+  <body class="flex flex-col h-screen font-sans" >
     <%= render 'pages/navbar' %>
     <%= yield %>
     <%= render 'pages/footer' %>
@@ -151,7 +150,7 @@ end
 def tailwind_homepage
   run 'rm app/views/pages/home.html.erb'
   file 'app/views/pages/home.html.erb', <<-HTML
-<div class="py-20 text-gray-700 bg-white" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%)"
+<div class="flex-auto py-20 text-gray-700 bg-white" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%)"
 >
   <div class="container mx-auto px-6">
     <h2 class="text-4xl font-bold mb-2 text-white">
