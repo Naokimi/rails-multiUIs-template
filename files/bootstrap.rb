@@ -4,6 +4,10 @@ def bootstrap_install
   run 'yarn add popper.js jquery bootstrap'
 end
 
+def bootstrap_simple_form_install
+  generate('simple_form:install', '--bootstrap')
+end
+
 def bootstrap_layout
   bootstrap_assets
   bootstrap_application_js
@@ -191,7 +195,7 @@ def bootstrap_framework
     bootstrap_layout
     homepage_controller
     bootstrap_homepage
-    simple_form_install
+    bootstrap_simple_form_install
     generate_installs_and_migrate
     git_ignore
     commit_and_push
