@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'support/router.rb'
-require 'https://raw.githubusercontent.com/Naokimi/personal-projects-templates/master/support/router.rb '
+# require 'https://raw.githubusercontent.com/Naokimi/personal-projects-templates/master/support/router.rb'
 
 def pick_option
   option = ask 'pick a number'
