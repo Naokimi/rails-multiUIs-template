@@ -88,11 +88,14 @@ end
 
 def simple_form_install
   generate 'simple_form:install'
-  # generate('simple_form:install', '--bootstrap')
 end
 
 def bootstrap_install
   run 'yarn add popper.js jquery bootstrap'
+end
+
+def bootstrap_simple_form_install
+  generate('simple_form:install', '--bootstrap')
 end
 
 def bootstrap_layout
@@ -282,7 +285,7 @@ def bootstrap_framework
     bootstrap_layout
     homepage_controller
     bootstrap_homepage
-    simple_form_install
+    bootstrap_simple_form_install
     generate_installs_and_migrate
     git_ignore
     commit_and_push
@@ -428,7 +431,7 @@ def generate_foundation
   generate 'foundation:install'
 end
 
-def simple_form_install
+def foundation_simple_form_install
   generate('simple_form:install', '--foundation')
 end
 
@@ -507,7 +510,7 @@ def foundation_framework
   after_bundle do
     homepage_controller
     foundation_homepage
-    simple_form_install
+    foundation_simple_form_install
     generate_foundation
     generate_installs_and_migrate
     git_ignore

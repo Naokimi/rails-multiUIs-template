@@ -8,7 +8,7 @@ def generate_foundation
   generate 'foundation:install'
 end
 
-def simple_form_install
+def foundation_simple_form_install
   generate('simple_form:install', '--foundation')
 end
 
@@ -87,7 +87,7 @@ def foundation_framework
   after_bundle do
     homepage_controller
     foundation_homepage
-    simple_form_install
+    foundation_simple_form_install
     generate_foundation
     generate_installs_and_migrate
     git_ignore
