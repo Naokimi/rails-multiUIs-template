@@ -2,6 +2,7 @@
 
 def gems
   gem 'autoprefixer-rails'
+  gem 'faker'
   gem 'font-awesome-sass', '~> 5.12.0'
   gem 'friendly_id', '~> 5.3'
   gem 'mini_magick'
