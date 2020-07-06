@@ -47,7 +47,7 @@ def tailwind_application_html
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
-  <body class="flex flex-col h-screen font-sans" >
+  <body>
     <%= render 'pages/navbar' %>
     <%= yield %>
     <%= render 'pages/footer' %>

@@ -58,10 +58,16 @@ def foundation_application_html
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="flex flex-col h-screen font-sans" >
-    <%= render 'pages/navbar' %>
-    <%= yield %>
-    <%= render 'pages/footer' %>
+  <body class="grid-x align-center" style="min-height: 100vh;">
+    <div class="align-self-top">
+      <%= render 'pages/navbar' %>
+    </div>
+    <div class="align-self-stretch" style="max-width: 80vw;">
+      <%= yield %>
+    </div>
+    <div class="align-self-bottom text-center">
+      <%= render 'pages/footer' %>
+    </div>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
@@ -70,15 +76,10 @@ end
 
 def foundation_navbar
   file 'app/views/pages/_navbar.html.erb', <<-HTML
-<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-  <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
-  <div class="title-bar-title">Menu</div>
-</div>
-
-<div class="top-bar" id="responsive-menu">
+<div class="top-bar" style="min-width: 100vw;">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Site Title</li>
+      <li class="menu-text">Foundation</li>
       <li class="has-submenu">
         <a href="#0">One</a>
         <ul class="submenu menu vertical" data-submenu>
@@ -104,6 +105,10 @@ end
 def foundation_footer
   file 'app/views/pages/_footer.html.erb', <<-HTML
 <footer>
+  <p>
+    <strong>Foundation</strong> by <a href="https://get.foundation/get-involved/contribute.html">the Foundation contributors</a>. The source code is licensed
+    <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+  </p>
   <p>
     Rails template made by <a href="https://github.com/Naokimi"><i class="fab fa-github"></i> Naokimi</a>
   </p>

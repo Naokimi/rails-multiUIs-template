@@ -13,3 +13,5 @@ system 'cat files/ask.rb >> template.rb' # always needs to be last
 text = File.read('template.rb')
 text = text.gsub("# frozen_string_literal: true\n", '')
 File.open('template.rb', 'w') { |file| file.puts text }
+
+p 'template file finished building'
