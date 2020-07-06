@@ -12,7 +12,7 @@ after rails vanilla installs, pick one of the framework options and press Enter
 
 ## Contents
 
-Creating an app using this template gives you an option amongs several UX/UI frameworks, a set of gems to help with you development, and a landing page with a navbar, footer, banner, and a link to the framework's documentation.
+Creating an app using this template gives you an option amongs several UX/UI frameworks, a set of gems to help with you development, and a landing page with a navbar, footer (sticky at bottom with flexbox), banner, and a link to the framework's documentation.
 
 ### Framework Options
 
@@ -43,7 +43,4 @@ Creating an app using this template gives you an option amongs several UX/UI fra
 - [whenever\*](https://github.com/javan/whenever): Provides a clear syntax for writing and deploying cron jobs.
 
 ## Contributing
-TBD
-- more frameworks
-- better landing pages
-- tests
+See [CONTRIBUTING.md](https://github.com/naokimi/personal-project-templates/blob/master/CONTRIBUTING.md).
