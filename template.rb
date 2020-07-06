@@ -423,12 +423,22 @@ def bulma_framework
   end
 end
 
-def foundation_gems
-  gem 'foundation-rails'
+def install_foundation
+  run 'yarn add jquery foundation-sites motion-ui'
 end
 
-def generate_foundation
-  generate 'foundation:install'
+def foundation_config_files
+  remove_file 'config/webpack/environment.js'
+  file 'config/webpack/environment.js', <<-CODE
+const { environment } = require('@rails/webpacker')
+const webpack = require("webpack")
+environment.plugins.append("Provide", new webpack.ProvidePlugin({
+  $: 'jquery',
+  jQuery: 'jquery'
+}))
+
+module.exports = environment
+  CODE
 end
 
 def foundation_simple_form_install
@@ -436,10 +446,49 @@ def foundation_simple_form_install
 end
 
 def foundation_layout
-  application_css
-  application_html
+  foundation_application_css
+  foundation_application_html
   foundation_navbar
   foundation_footer
+end
+
+def foundation_application_css
+  file 'app/javascript/src/application.scss', <<-SCSS
+@import '~foundation-sites/dist/css/foundation';
+@import '~motion-ui/motion-ui';
+  SCSS
+  inject_into_file 'app/javascript/packs/application.js', <<-CODE
+import "foundation-sites"
+require("src/application")
+
+$(document).on('turbolinks:load', function() {
+  $(document).foundation()
+});
+  CODE
+end
+
+def foundation_application_html
+  run 'rm app/views/layouts/application.html.erb'
+  file 'app/views/layouts/application.html.erb', <<-HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal Projects Template</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class="flex flex-col h-screen font-sans" >
+    <%= render 'pages/navbar' %>
+    <%= yield %>
+    <%= render 'pages/footer' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>
+  HTML
 end
 
 def foundation_navbar
@@ -504,14 +553,14 @@ end
 
 def foundation_framework
   gems
-  foundation_gems
+  install_foundation
   foundation_layout
 
   after_bundle do
+    foundation_config_files
     homepage_controller
     foundation_homepage
     foundation_simple_form_install
-    generate_foundation
     generate_installs_and_migrate
     git_ignore
     commit_and_push
