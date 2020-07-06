@@ -1,4 +1,5 @@
-# frozen_string_literal: true
+
+# Foundation Framework
 
 def install_foundation
   run 'yarn add jquery foundation-sites motion-ui'
@@ -108,9 +109,6 @@ def foundation_footer
   <p>
     <strong>Foundation</strong> by <a href="https://get.foundation/get-involved/contribute.html">the Foundation contributors</a>. The source code is licensed
     <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-  </p>
-  <p>
-    Rails template made by <a href="https://github.com/Naokimi"><i class="fab fa-github"></i> Naokimi</a>
   </p>
 </footer>
   HTML

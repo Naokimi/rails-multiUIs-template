@@ -1,4 +1,5 @@
-# frozen_string_literal: true
+
+# Pick a Framework
 
 def pick_option
   option = ask 'pick a number'

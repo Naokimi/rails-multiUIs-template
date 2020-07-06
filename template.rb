@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 def gems
   gem 'autoprefixer-rails'
@@ -89,6 +90,8 @@ end
 def simple_form_install
   generate 'simple_form:install'
 end
+
+# Bootstrap Framework
 
 def bootstrap_install
   run 'yarn add popper.js jquery bootstrap'
@@ -252,9 +255,6 @@ def bootstrap_footer
       <strong>Bootstrap</strong> by the <a href="https://getbootstrap.com/docs/4.5/about/team/">Bootstrap team</a>. Code licensed
       <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
     </p>
-    <p>
-      Rails template made by <a href="https://github.com/Naokimi"><i class="fab fa-github"></i> Naokimi</a>
-    </p>
   </div>
 </footer>
   HTML
@@ -291,6 +291,8 @@ def bootstrap_framework
     commit_and_push
   end
 end
+
+# Bulma Framework
 
 def bulma_gems
   gem 'bulma-rails', '~> 0.8.2'
@@ -379,9 +381,6 @@ def bulma_footer
       <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
       <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
     </p>
-    <p>
-      Rails template made by <a href="https://github.com/Naokimi"><i class="fab fa-github"></i> Naokimi</a>
-    </p>
   </div>
 </footer>
   HTML
@@ -422,6 +421,8 @@ def bulma_framework
     commit_and_push
   end
 end
+
+# Foundation Framework
 
 def install_foundation
   run 'yarn add jquery foundation-sites motion-ui'
@@ -532,9 +533,6 @@ def foundation_footer
     <strong>Foundation</strong> by <a href="https://get.foundation/get-involved/contribute.html">the Foundation contributors</a>. The source code is licensed
     <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
   </p>
-  <p>
-    Rails template made by <a href="https://github.com/Naokimi"><i class="fab fa-github"></i> Naokimi</a>
-  </p>
 </footer>
   HTML
 end
@@ -571,6 +569,8 @@ def foundation_framework
     commit_and_push
   end
 end
+
+# Tailwind Framework
 
 def install_tailwind
   run 'yarn add tailwindcss'
@@ -710,9 +710,6 @@ def tailwind_footer
       <strong>Tailwind</strong> by <a href="https://github.com/tailwindcss/tailwindcss">the Tailwind contributors</a>. The source code is licensed
       <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
     </p>
-    <p>
-      Rails template made by <a href="https://github.com/Naokimi"><i class="fab fa-github"></i> Naokimi</a>
-    </p>
   </div>
   </div>
 </footer>
@@ -755,6 +752,8 @@ def tailwind_framework
     commit_and_push
   end
 end
+
+# Pick a Framework
 
 def pick_option
   option = ask 'pick a number'

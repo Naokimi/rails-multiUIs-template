@@ -1,4 +1,5 @@
-# frozen_string_literal: true
+
+# Bulma Framework
 
 def bulma_gems
   gem 'bulma-rails', '~> 0.8.2'
@@ -86,9 +87,6 @@ def bulma_footer
     <p>
       <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
       <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-    </p>
-    <p>
-      Rails template made by <a href="https://github.com/Naokimi"><i class="fab fa-github"></i> Naokimi</a>
     </p>
   </div>
 </footer>

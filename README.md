@@ -44,3 +44,6 @@ Creating an app using this template gives you an option amongs several UX/UI fra
 
 ## Contributing
 TBD
+- more frameworks
+- better landing pages
+- tests

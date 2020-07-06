@@ -1,4 +1,5 @@
-# frozen_string_literal: true
+
+# Tailwind Framework
 
 def install_tailwind
   run 'yarn add tailwindcss'
@@ -137,9 +138,6 @@ def tailwind_footer
     <p>
       <strong>Tailwind</strong> by <a href="https://github.com/tailwindcss/tailwindcss">the Tailwind contributors</a>. The source code is licensed
       <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-    </p>
-    <p>
-      Rails template made by <a href="https://github.com/Naokimi"><i class="fab fa-github"></i> Naokimi</a>
     </p>
   </div>
   </div>

@@ -1,4 +1,5 @@
-# frozen_string_literal: true
+
+# Bootstrap Framework
 
 def bootstrap_install
   run 'yarn add popper.js jquery bootstrap'
@@ -161,9 +162,6 @@ def bootstrap_footer
     <p>
       <strong>Bootstrap</strong> by the <a href="https://getbootstrap.com/docs/4.5/about/team/">Bootstrap team</a>. Code licensed
       <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
-    </p>
-    <p>
-      Rails template made by <a href="https://github.com/Naokimi"><i class="fab fa-github"></i> Naokimi</a>
     </p>
   </div>
 </footer>
