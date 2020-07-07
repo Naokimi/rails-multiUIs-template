@@ -1,4 +1,4 @@
-# personal-projects-templates
+# rails-multiUIs-template
 A Rails 6 template to quickly generate apps for personal use. The main goal is allow for easy experimentation with different UX/UI frameworks - when running the template just choose a framework from the options available.
 
 Inspired heavily by [Le Wagon's Rails Templates](https://github.com/lewagon/rails-templates). Would not exist without them.
@@ -7,7 +7,8 @@ Special thanks also to [Rails Kickoff – Tailwind](https://github.com/justaleve
 
 ### Usage
 
-run `rails new APP-NAME -d=postgresql -T -m personal-projects-templates/template.rb`
+run `rails new APP-NAME -d=postgresql -T -m https://raw.githubusercontent.com/naokimi/rails-multiUIs-template/master/template.rb`
+
 after rails vanilla installs, pick one of the framework options and press Enter
 
 ## Contents
@@ -43,4 +44,4 @@ Creating an app using this template gives you an option amongs several UX/UI fra
 - [whenever\*](https://github.com/javan/whenever): Provides a clear syntax for writing and deploying cron jobs.
 
 ## Contributing
-See [CONTRIBUTING.md](https://github.com/naokimi/personal-project-templates/blob/master/CONTRIBUTING.md).
+See [CONTRIBUTING.md](https://github.com/naokimi/rails-multiUIs-template/blob/master/CONTRIBUTING.md).
