@@ -19,6 +19,7 @@ def gems
     gem 'pry-byebug'
     gem 'pry-rails'
     gem 'rspec'
+    gem 'rspec-rails'
     gem 'spring'
   end
 end
@@ -61,6 +62,7 @@ end
 
 def generate_installs_and_migrate
   generate 'annotate:install'
+  generate 'rspec:install'
   rails_command 'sitemap:install'
   run 'bundle exec spring binstub --all'
   run 'bundle exec wheneverize .'
