@@ -70,6 +70,7 @@ def generate_installs_and_migrate
 end
 
 def git_ignore
+  run 'touch .env'
   append_file '.gitignore', <<-TXT
 
 # Ignore .env file containing credentials.

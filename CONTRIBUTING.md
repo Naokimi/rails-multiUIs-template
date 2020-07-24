@@ -3,7 +3,8 @@ We are open to have this project grow and as such welcome with open arms everyon
 ## contribution process
 1. Fork the repo
 2. If you are adding a new framework, create a file in the files/ folder and add references to `files/ask.rb` and `executables/build.rb`
-3. Push to your fork and submit a pull request
+3. Run `ruby executables/build.rb`
+4. Push to your fork and submit a pull request
 
 ## contribution ideas
 While we are open to any contributions, here are some ideas to get you started:
