@@ -47,6 +47,7 @@ def tailwind_application_html
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
     <%= render 'pages/navbar' %>
@@ -70,7 +71,7 @@ def tailwind_application_css
 @import "tailwindcss/utilities";
   SCSS
   inject_into_file 'app/javascript/packs/application.js', <<-CODE
-import "stylesheets/application"
+import "../stylesheets/application"
   CODE
 end
 
