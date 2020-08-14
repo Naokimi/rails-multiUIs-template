@@ -2,6 +2,7 @@
 
 def gems
   gem 'autoprefixer-rails'
+  gem 'database_cleaner-active_record'
   gem 'faker'
   gem 'font-awesome-sass', '~> 5.12.0'
   gem 'friendly_id', '~> 5.3'
@@ -25,7 +26,7 @@ def gems
 end
 
 def application_html
-  run 'rm app/views/layouts/application.html.erb'
+  remove_file 'app/views/layouts/application.html.erb'
   file 'app/views/layouts/application.html.erb', <<-HTML
 <!DOCTYPE html>
 <html>
@@ -60,9 +61,42 @@ def homepage_controller
   route "root to: 'pages#home'"
 end
 
+def database_cleaner_config
+  remove_file 'db/seeds.rb'
+  file 'db/seeds.rb', <<-RUBY
+require 'database_cleaner/active_record'
+
+# write your `.destroy_all` before this line
+
+DatabaseCleaner.allow_production = true
+DatabaseCleaner.allow_remote_database_url = true
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean
+
+# write your new seeds after this line
+
+  RUBY
+  inject_into_file 'spec/spec_helper.rb', after: '=end' do
+  <<-RUBY
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+  RUBY
+  end
+end
+
 def generate_installs_and_migrate
   generate 'annotate:install'
   generate 'rspec:install'
+  database_cleaner_config
   rails_command 'sitemap:install'
   run 'bundle exec spring binstub --all'
   run 'bundle exec wheneverize .'

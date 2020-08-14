@@ -27,6 +27,7 @@ Creating an app using this template gives you an option amongs several UX/UI fra
 
 - [annotate\*](https://github.com/ctran/annotate_models): Add a comment summarizing the current schema to the top or bottom of each of your models.
 - [autoprefixer-rails](https://github.com/ai/autoprefixer-rails): Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use database.
+- [database_cleaner](https://github.com/DatabaseCleaner): Reset ids when emptying database with seeds or rspec
 - [dotenv-rails](https://github.com/bkeepers/dotenv): Shim to load environment variables from .env into ENV in development.
 - [faker\*](https://github.com/faker-ruby/faker): Generate fake data for your seeds and tests.
 - [font-awesome-sass](https://github.com/FortAwesome/font-awesome-sass): Sass-powered version of the web's most popular icon set and toolkit.
