@@ -27,8 +27,9 @@ Creating an app using this template gives you an option amongs several UX/UI fra
 
 - [annotate\*](https://github.com/ctran/annotate_models): Add a comment summarizing the current schema to the top or bottom of each of your models.
 - [autoprefixer-rails](https://github.com/ai/autoprefixer-rails): Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use database.
-- [database_cleaner](https://github.com/DatabaseCleaner): Reset ids when emptying database with seeds or rspec
+- [database_cleaner\*](https://github.com/DatabaseCleaner): Reset ids when emptying database with seeds or rspec
 - [dotenv-rails](https://github.com/bkeepers/dotenv): Shim to load environment variables from .env into ENV in development.
+- [factory_bot_rails\*](https://github.com/thoughtbot/factory_bot_rails): a fixtures replacement to help you with defining testing objects.
 - [faker\*](https://github.com/faker-ruby/faker): Generate fake data for your seeds and tests.
 - [font-awesome-sass](https://github.com/FortAwesome/font-awesome-sass): Sass-powered version of the web's most popular icon set and toolkit.
 - [friendly_id\*](https://github.com/norman/friendly_id): Create pretty URLs and work with human-friendly strings as if they were numeric ids.
@@ -39,10 +40,10 @@ Creating an app using this template gives you an option amongs several UX/UI fra
 - [rspec\*](https://github.com/rspec/rspec): Behaviour Driven Development for Ruby.
 - [sassc-rails](https://github.com/sass/sassc-rails): Integrates the C implementation of Sass into the asset pipeline to make compilation faster.
 - [simple_form](https://github.com/heartcombo/simple_form): Rails forms made easy.
+- [simplecov\*](https://github.com/simplecov-ruby/simplecov): Atool to help you visualize how much of your app is covered by tests.
 - [sitemap_generator\*](https://github.com/kjvarga/sitemap_generator): The easiest way to generate Sitemaps in Ruby.
 - [spring](https://github.com/rails/spring): Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, rake task or migration.
 - [uglifier](https://github.com/mishoo/UglifyJS): Ruby wrapper for UglifyJS JavaScript compressor - a JavaScript parser, minifier, compressor and beautifier toolkit.
-- [whenever\*](https://github.com/javan/whenever): Provides a clear syntax for writing and deploying cron jobs.
 
 ## Contributing
 See [CONTRIBUTING.md](https://github.com/naokimi/rails-multiUIs-template/blob/master/CONTRIBUTING.md).

@@ -12,16 +12,20 @@ def gems
   gem 'simple_form'
   gem 'sitemap_generator'
   gem 'uglifier'
-  gem 'whenever', require: false
 
   gem_group :development, :test do
     gem 'annotate'
     gem 'dotenv-rails'
+    gem 'factory_bot_rails'
     gem 'pry-byebug'
     gem 'pry-rails'
     gem 'rspec'
     gem 'rspec-rails'
     gem 'spring'
+  end
+
+  gem_group :test do
+    gem 'simplecov', require: false
   end
 end
 
@@ -93,13 +97,22 @@ DatabaseCleaner.clean
   end
 end
 
+def simplecov_config
+  inject_into_file 'spec/spec_helper.rb', before: '# This file was generated' do
+<<-RUBY
+require 'simplecov'
+SimpleCov.start 'rails'
+RUBY
+  end
+end
+
 def generate_installs_and_migrate
   generate 'annotate:install'
   generate 'rspec:install'
   database_cleaner_config
+  simplecov_config
   rails_command 'sitemap:install'
   run 'bundle exec spring binstub --all'
-  run 'bundle exec wheneverize .'
   rails_command 'db:create db:migrate'
 end
 
@@ -113,13 +126,15 @@ def git_ignore
 # Ignore Mac and Linux file system files
 *.swp
 .DS_Store
+
+/coverage/*
   TXT
 end
 
 def commit_and_push
   git :init
   git add: '.'
-  git commit: %( -m 'Initial commit using personal-projects-template' )
+  git commit: %( -m 'Initial commit using rails-multiUIs-template' )
   # run 'hub create'
   # git push: 'origin master'
 end
