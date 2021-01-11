@@ -135,8 +135,6 @@ def commit_and_push
   git :init
   git add: '.'
   git commit: %( -m 'Initial commit using rails-multiUIs-template' )
-  # run 'hub create'
-  # git push: 'origin master'
 end
 
 def simple_form_install
