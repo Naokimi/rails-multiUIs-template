@@ -34,15 +34,12 @@ Creating an app using this template gives you an option amongs several UX/UI fra
 - [font-awesome-sass](https://github.com/FortAwesome/font-awesome-sass): Sass-powered version of the web's most popular icon set and toolkit.
 - [friendly_id\*](https://github.com/norman/friendly_id): Create pretty URLs and work with human-friendly strings as if they were numeric ids.
 - [mini_magick\*](https://github.com/minimagick/minimagick): An interface between the Ruby programming language and the ImageMagick image processing library
-- [pg](https://github.com/ged/ruby-pg): The Ruby interface to the PostgreSQL RDBMS.
 - [pry-byebug](https://github.com/deivid-rodriguez/pry-byebug): Step-by-step debugging and stack navigation capabilities.
 - [pry-rails](https://github.com/rweng/pry-rails): Causes `rails console` to open pry.
 - [rspec\*](https://github.com/rspec/rspec): Behaviour Driven Development for Ruby.
-- [sassc-rails](https://github.com/sass/sassc-rails): Integrates the C implementation of Sass into the asset pipeline to make compilation faster.
 - [simple_form](https://github.com/heartcombo/simple_form): Rails forms made easy.
 - [simplecov\*](https://github.com/simplecov-ruby/simplecov): Atool to help you visualize how much of your app is covered by tests.
 - [sitemap_generator\*](https://github.com/kjvarga/sitemap_generator): The easiest way to generate Sitemaps in Ruby.
-- [spring](https://github.com/rails/spring): Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, rake task or migration.
 - [uglifier](https://github.com/mishoo/UglifyJS): Ruby wrapper for UglifyJS JavaScript compressor - a JavaScript parser, minifier, compressor and beautifier toolkit.
 
 ## Contributing

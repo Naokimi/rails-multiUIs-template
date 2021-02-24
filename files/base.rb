@@ -7,8 +7,6 @@ def gems
   gem 'font-awesome-sass', '~> 5.12.0'
   gem 'friendly_id', '~> 5.3'
   gem 'mini_magick'
-  gem 'pg'
-  gem 'sassc-rails'
   gem 'simple_form'
   gem 'sitemap_generator'
   gem 'uglifier'
@@ -21,7 +19,6 @@ def gems
     gem 'pry-rails'
     gem 'rspec'
     gem 'rspec-rails'
-    gem 'spring'
   end
 
   gem_group :test do
