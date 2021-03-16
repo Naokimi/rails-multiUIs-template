@@ -1,4 +1,7 @@
 # rails-multiUIs-template
+**DISCLAIMER**
+Repo has been archived due to being unable to lack of compatibility with the newest UI framework versions, being unable to keep up with the changes. I'm planning to return to this project down the line.
+
 A Rails 6 template to quickly generate apps for personal use. The main goal is allow for easy experimentation with different UX/UI frameworks - when running the template just choose a framework from the options available.
 
 Inspired heavily by [Le Wagon's Rails Templates](https://github.com/lewagon/rails-templates). Would not exist without them.
